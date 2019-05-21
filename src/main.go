@@ -2,9 +2,11 @@ package main
 
 import (
   "github.com/gin-gonic/gin"
+  "os"
 )
 
 func main() {
+  os.Setenv("PORT", "8080")
   server := gin.Default()
 
   server.GET("/ping", func(ctx *gin.Context) {
@@ -13,5 +15,5 @@ func main() {
     })
   })
 
-  server.Run() // listen and serve on localhost:8080
+  server.Run() // listen and serve on localhost:PORT (env var PORT)
 }
